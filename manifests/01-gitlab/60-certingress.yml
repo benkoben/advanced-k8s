@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  namespace: gitlab
+  name: gitlab-kooijman
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/issuer: letsencrypt-staging
+spec:
+  rules:
+  - host: gitlab.kooijman.se
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: cm-acme-http-solver-qtpln
+          servicePort: 80

@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  gitlab
+  namespace:  gitlab
+  labels:
+    app: gitlab
+spec:
+  selector:
+    app:  gitlab
+  ports:
+  - name:  http-web
+    protocol: "TCP"
+    port:  80
+    targetPort:  80
+  - name:  http-reg
+    protocol: "TCP"
+    port:  5050
+    targetPort:  5050
+  type:  ClusterIP
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name:  gitlab-ssh
+  namespace:  gitlab
+  labels:  
+    app: gitlab-ssh
+spec:
+  selector:
+    app:  gitlab
+  type:  NodePort
+  ports:
+  - name:  tcp-git
+    protocol: "TCP"
+    port:  22
+    targetPort:  32222

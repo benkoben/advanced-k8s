@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "projectName": {
+            "value": "prj001"
+        },
+        "vnetId": {
+            "value": "/subscriptions/29c25af1-9bcd-4aab-960d-5665914cb916/resourceGroups/ben-dev-shared-network/providers/Microsoft.Network/virtualNetworks/ben-shared-vnet-spoke01-d"
+        },
+        "subnetName": {
+            "value": "snt-dumm001-sacc"
+        },
+        "enablePrivateDnsZone": {
+            "value": true
+        },
+        "tags": {
+            "value": {
+                "CostCenter": "913114",
+                "UnitCode": "SDF",
+                "Project": "A102886",
+                "Owner": "andreas.bulow@epiroc.com",
+                "TechnicalContact": "ben.kooijman@external.epiroc.com",
+                "Description": "Resource which was deployed while debugging bicep"
+            }
+        }
+    }
+}
