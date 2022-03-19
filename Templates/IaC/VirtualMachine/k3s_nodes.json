@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "westeurope"
+    },
+    "vaultName": {
+      "value": "k8s-keyv-weeu-dev-001"
+    },
+    "env": {
+      "value": "dev"
+    },
+    "vnetName": {
+      "value": "ben-shared-vnet-spoke01-d"
+    },
+    "vnetRg": {
+      "value": "ben-dev-shared-network"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+
+# sensitive information
+.kube/*
+
+# ssh keys
+*.pub
