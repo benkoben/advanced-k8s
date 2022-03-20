@@ -1,0 +1,27 @@
+---
+- name: Install kubernetes
+  hosts: nodes
+
+  tasks:
+  - name: Update cache and install node specific packages
+    apt:
+      name: "{{ item }}"
+      state: latest
+      update_cache: yes
+    loop: 
+    - "*"
+    - "{{ apt_packages }}"
+
+  - name: Add mappings to /etc/hosts
+    blockinfile:
+      path: /etc/hosts
+      block: |
+        {{ item.ip }} {{ item.name }}
+      marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
+    loop:
+      - { name: node01-vm-weeu.kooijman.se, ip: "{{ hostvars['node01-vm-weeu.kooijman.se']['ansible_facts']['eth0']['ipv4']['address'] }}" }
+      - { name: node02-vm-weeu.kooijman.se, ip: "{{ hostvars['node02-vm-weeu.kooijman.se']['ansible_facts']['eth0']['ipv4']['address'] }}" }
+      - { name: node03-vm-weeu.kooijman.se, ip: "{{ hostvars['node03-vm-weeu.kooijman.se']['ansible_facts']['eth0']['ipv4']['address'] }}" }
+  
+  roles:
+    - githubixx.ansible_role_wireguard

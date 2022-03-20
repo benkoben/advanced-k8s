@@ -1,0 +1,33 @@
+---
+gitlab:
+  hosts:
+    gitlab.kooijman.com:
+      ansible_ssh_user: kooijman
+      ansible_become: true
+
+nodes:
+  hosts:
+    node01-vm-weeu.kooijman.se:
+      wireguard_save_config: "true"
+      wireguard_address: "10.0.0.1/24"
+      wireguard_endpoint: "node01-vm-weeu.kooijman.se"
+      wireguard_persistent_keepalive: "30"
+      ansible_python_interpreter: /usr/bin/python3
+
+    node02-vm-weeu.kooijman.se:
+      wireguard_save_config: "true"
+      wireguard_address: "10.0.0.2/24"
+      wireguard_endpoint: "node02-vm-weeu.kooijman.se"
+      wireguard_persistent_keepalive: "30"
+      ansible_python_interpreter: /usr/bin/python3
+    
+    node03-vm-weeu.kooijman.se:
+      wireguard_save_config: "true"
+      wireguard_address: "10.0.0.3/24"
+      wireguard_endpoint: "node03-vm-weeu.kooijman.se"
+      wireguard_persistent_keepalive: "30"
+      ansible_python_interpreter: /usr/bin/python3
+      
+  vars:
+    ansible_ssh_user: kooijman
+    ansible_become: true

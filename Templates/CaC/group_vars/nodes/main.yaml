@@ -1,0 +1,11 @@
+# What we want each to to do:
+# Pull from https endpoints with apt (apt-transport-https)
+# Use a wide range of well known CA certificates (ca-certificates)
+# Command line webagent (curl)
+# Support management of independent software vendor repos such as wireguard and kubernetes (software-properties-common)
+apt_packages:
+- apt-transport-https
+- ca-certificates
+- curl
+- gnupg-agent
+- software-properties-common
